@@ -25,20 +25,37 @@ class _SignUpFormState extends State<SignUpForm> {
                 children: <Widget>[
                   Center(
                       child: CircleAvatar(
-                        backgroundImage: AssetImage('assets/Sanvi Logo.png'),
-                        radius: 80,
-                      )),
+                    backgroundImage: AssetImage('assets/Sanvi Logo.png'),
+                    radius: 80,
+                  )),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: "User Name & e-mail ID",
+                        hintText: "e_mail ID",
                         icon: Icon(
                           Icons.verified_user_outlined,
                           color: Colors.blue,
                           size: 40,
                         ),
-                        label: Text("User"),
+                        label: Text("e_mail ID"),
+                        border: OutlineInputBorder(),
+                        filled: true,
+                      ),
+                      maxLength: 30,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "User Name",
+                        icon: Icon(
+                          Icons.people_alt_outlined,
+                          color: Colors.blue,
+                          size: 40,
+                        ),
+                        label: Text("User Name"),
                         border: OutlineInputBorder(),
                         filled: true,
                       ),
@@ -98,30 +115,41 @@ class _SignUpFormState extends State<SignUpForm> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-
-
                         SizedBox(
                           width: 10,
                         ),
-                        Builder(
-                            builder: (context) {
-                              return ElevatedButton(
-                                  onPressed: () {
-                                    Scaffold.of(context).showSnackBar( SnackBar(content: Row(
+                        Builder(builder: (context) {
+                          return ElevatedButton(
+                              onPressed: () {
+                                Scaffold.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Row(
                                       children: <Widget>[
-                                        Icon(Icons.thumb_up_alt_outlined,size: 20,color: Colors.yellow,),
-
-                                        Text("Your Information has been successfully added",style: TextStyle(color: Colors.yellow),),
+                                        Icon(
+                                          Icons.thumb_up_alt_outlined,
+                                          size: 20,
+                                          color: Colors.yellow,
+                                        ),
+                                        Text(
+                                          "Your Information has been successfully added",
+                                          style:
+                                              TextStyle(color: Colors.yellow),
+                                        ),
                                       ],
-                                    ),duration: Duration(seconds: 2),backgroundColor: Colors.blue,
                                     ),
-                                    );
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
-                                  },
-                                  child: Text("Add Data",
-                                      style: TextStyle(color: Colors.white,fontSize: 20)));
-                            }
-                        ),
+                                    duration: Duration(seconds: 2),
+                                    backgroundColor: Colors.blue,
+                                  ),
+                                );
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginPage()));
+                              },
+                              child: Text("Add Data",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20)));
+                        }),
                       ],
                     ),
                   ),
